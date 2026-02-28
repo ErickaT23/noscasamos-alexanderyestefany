@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander & Estefany</title>
+    <meta name="description" content="Llego el momento de unir nuestro amor por siempre">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nos Casamos">
+    <meta property="og:image" content="https://images.pexels.com/photos/35319193/pexels-photo-35319193.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preload" href="/images/sobre-arriba.png" as="image">
+    <link rel="preload" href="/images/sobre-abajo.jpg" as="image">
+    <link rel="preload" href="/images/play.png" as="image">
+    <link rel="preload" href="/images/V1.jpeg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <script src="https://kit.fontawesome.com/3c219a0781.js" crossorigin="anonymous"></script>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head> 
+<body>
+    <div style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <i class="fas fa-play"></i>
+        <i class="fas fa-pause"></i>
+    </div>    
+<div class="main-content">
+    <!-- Sección de sobre -->
+    <div id="envelope">
+        <div id="envelope-top"></div>
+        <div id="seal" onclick="openEnvelopeAndPlayMusic()">
+            <h2 class="fade-in-element">A | E</h2>
+        </div>
+        <div id="envelope-bottom"></div>
+    </div>
+    <!-- Sección de invitación -->
+    <div id="invitation" class="hidden">
+          <div class="photo-section fade-in-element">
+             <div class="photo-container">
+                 <img src="/images/FOTO-PORTADA.jpeg" alt="Foto de la pareja" class="photo fade-in-element fade-in-element" loading="lazy">
+             </div>
+                <div class="photo-text">
+                 <h1>Alexander & Estefany</h1>
+                 <h2>15 . 03 . 2026</h2>
+               </div>
+          </div> 
+        <div class="contenedor-play">
+            <h1 class="texto-play fade-in-element fade-in-element">Te Amo - Alexanader Acha</h1>
+            <div id="playPauseButton" class="icono-contenedor fade-in-element fade-in-element">
+                <i id="iconoPlayPause" class="fas fa-play" aria-hidden="true"></i>
+            </div>
+            <audio id="audioPlayer" src="/music/teamo-alexander.mp3" loop></audio>
+            <div class="progress-container">
+                <input id="progress-bar" type="range" value="0" min="0" max="100" step="1">
+                <div class="time-display">
+                    <span id="current-time">0:00</span> / <span id="duration-time">0:00</span>
+                </div>
+            </div>            
+        </div>               
+         <div class="content">
+            <div class="photo-section fade-in-element fade-in-element">
+                <div class="photo-container">
+                    <img src="/images/CALENDAR.jpeg" alt="Foto de la pareja" class="photo fade-in-element fade-in-element">
+                </div>
+                      <div class="photo-text fade-in-element fade-in-element">
+                          <h3 class="title">¡Nos casamos!</h3>
+                          <p>Prometemos amarnos y cuidarnos mutuamente mientras caminamos juntos por el camino del matrimonio. Por eso los invitamos a ser parte de nuestra ceremonia de unión.</p>
+                          <div class="countdown fade-in-element fade-in-element">
+                              <div class="unit">
+                                 <span id="days" class="number">00</span>
+                                 <span class="label">Días</span>
+                              </div>
+                               <div class="unit">
+                                 <span id="hours" class="number">00</span>
+                                 <span class="label">Horas</span>
+                              </div>
+                             <div class="unit">
+                                 <span id="minutes" class="number">00</span>
+                                 <span class="label">Minutos</span>
+                             </div>
+                             <div class="unit">
+                                 <span id="seconds" class="number">00</span>
+                                 <span class="label">Segundos</span>
+                             </div>
+                         </div>    
+                         <div class="calendar-button fade-in-element fade-in-element" style="margin-top: 20px; text-align:center;">
+                            <a 
+                              href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Nos+casamos+Alexander+%26+Estefany+%F0%9F%92%8D%F0%9F%92%9A&dates=20260315/20260316&details=Boda+de+Alexander+y+Estefany&location=" 
+                              target="_blank"
+                              class="btn-calendar"
+                              style="display:inline-block; padding:12px 22px; background:#8B9C74; color:white; border-radius:8px; text-decoration:none;font-weight:600;">Agregar al Calendario</a>
+                         </div>                
+                      </div>
+                 </div>
+            </div>
+                    <div class="guest-section fade-in-element fade-in-element">
+                      <p id="guest-name" class="fade-in-element"></p>
+                   </div>
+            <div class="invitation-info-section fade-in-element fade-in-element">
+                <p>Invitación válida por <span id="passes"></span> <i class="fa-solid fa-ticket"></i> </p>
+            </div>
+            <div class="blessing-section fade-in-element" style="transition-delay: 0.55s;">
+    
+                <p class="blessing-intro">
+                    Con la bendición de Dios y de nuestros padres
+                </p>
+            
+                <div class="parents-container">
+            
+                    <div class="parents-block">
+                        <h3>Padres del Novio</h3>
+                        <p>Andrés Estuardo García Chay</p>
+                        <p>Claudia Marina Quiche Moho de García</p>
+                    </div>
+            
+                    <div class="parents-block">
+                        <h3>Padres de la Novia</h3>
+                        <p>Sebastian Quiche Quiche</p>
+                        <p>Juana Ajú Quiché de Quiche</p>
+                    </div>
+            
+                </div>
+            
+            </div>
+            <div class="itinerary-section fade-in-element fade-in-element">
+                 <!--<div class="itinerary-item">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/fshosubk.json"
+                        stroke="light"
+                        colors="primary:#5F6D4B,secondary:#b29a68" 
+                        class="lord-icon-style"
+                    ></lord-icon>
+                     <h2>Ceremonia</h2>
+                     <p>Iglesia San Nicolas</p>
+                       <div class="itinerary-details">
+                         <div class="time-location">
+                             <span class="date">15 de Marzo</span>
+                             <span class="separator">|</span>
+                             <span class="time">16:15 hrs</span>
+                         </div>
+                          <p class="location">Zona 1, Retalhuleu.</p>
+                          <button type="button"  class="directions-button" onclick="location.href='https://maps.app.goo.gl/wXVQ69YkYGX6dteZA'">CÓMO LLEGAR</button>
+                      </div>
+                   </div>-->
+
+                <div class="itinerary-item">
+                    <lord-icon 
+                     src="https://cdn.lordicon.com/lhzhnixi.json"  
+                     stroke="light" 
+                     colors="primary:#5F6D4B,secondary:#b29a68" 
+                     class="lord-icon-style"
+                     ></lord-icon>
+                    <h2>Recepción</h2>
+                    <p>Plaza Francia, Xetulul</p>
+                    <div class="itinerary-details">
+                        <div class="time-location">
+                            <span class="date">15 de Marzo</span>
+                            <span class="separator">|</span>
+                            <span class="time">19:00 hrs</span>
+                        </div>
+                        <p class="location">Km 180.5 Carretera a Quetzaltenango, San Martín Zapotitlán, Retalhuleu.</p>
+                        <button class="directions-button" onclick="location.href='https://maps.app.goo.gl/YxvYmCgeUczyBLrR8'">CÓMO LLEGAR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/V4.jpeg" alt="Foto de la pareja" loading="lazy">
+            </div>
+            <div class="gifts-section fade-in-element fade-in-element">
+                <h2>Regalo</h2>
+                <lord-icon 
+                    src="https://cdn.lordicon.com/ibydboev.json" 
+                    stroke="light" 
+                    colors="primary:#5F6D4B,secondary:#b29a68" 
+                    class="lord-icon-style">
+                </lord-icon>
+            
+                <p>Tu presencia es lo más importante para nosotros.
+                    Si deseas bendecir nuestro nuevo hogar, hemos elegido la modalidad de lluvia de sobres.
+                    
+                    En la recepción encontrarás un cofre especial para dejar tu sobre,
+                    o si prefieres, puedes hacerlo mediante transferencia bancaria.
+                    
+                    En el botón encontrarás los datos de cuenta.</p>
+            
+                <!-- ⭐ Nuevo botón: Cuenta Bancaria -->
+                <div class="gifts-section-button">
+                    <button onclick="toggleDetails()">
+                        Cuenta bancaria
+                    </button>
+                </div>
+            
+                <p>¡Muchas gracias!</p>
+            
+                <!-- ⭐ Pop-up / Modal de Cuenta Bancaria -->
+                <div id="accountDetails" 
+                     style="
+                        display:none;
+                        position: fixed;
+                        top: 0; left: 0;
+                        width: 100%; height: 100%;
+                        background: rgba(0,0,0,0.6);
+                        backdrop-filter: blur(3px);
+                        z-index: 9999;
+                        justify-content: center;
+                        align-items: center;
+                     ">
+            
+                    <div style="
+                        background: white;
+                        padding: 25px;
+                        border-radius: 10px;
+                        text-align: center;
+                        max-width: 85%;
+                        margin: auto;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                        font-size: 35px;
+                        line-height: 1.3;
+                    ">
+                        <h1 style="font-size:45px; margin-bottom:20px; color:#5F6D4B; text-transform: capitalize;">Cuenta Bancaria</h1>
+            
+                        <p><strong>Banco Industrial</strong></p>
+                        <p>Kevin Alexander García</p>
+                        <p><strong>No. cuenta: </strong>5820056140</p>
+                        <p>Cuenta Monetaría</p>
+            
+                        <button onclick="toggleDetails()"
+                            style="
+                                margin-top: 25px;
+                                padding: 10px 20px;
+                                font-size: 20px;
+                                border: none;
+                                border-radius: 5px;
+                                background: #8B9C74;
+                                color: white;
+                                cursor: pointer;
+                            ">
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="playlist-section fade-in-element fade-in-element">
+                <h2>Playlist</h2>
+                <lord-icon 
+                 src="https://cdn.lordicon.com/vvlnxtgv.json" 
+                 stroke="light" 
+                 colors="primary:#5F6D4B,secondary:#b29a68" 
+                 class="lord-icon-style"
+                 ></lord-icon>
+                <p>Nos encantaría que nos sugieras esas canciones que sabes que son geniales y no pueden faltar en nuestra boda.</p>
+                <button onclick="window.open('https://open.spotify.com/playlist/67cqJxjUEnVYeEhi9Pojcg?si=e1762eab22c643c5&pt=9a5e3743b37970d94e7c40cbdb9a143a', '_blank')">
+                    ABRIR PLAYLIST EN SPOTIFY
+                </button>                              
+            </div>
+            <div class="dresscode-section fade-in-element">
+                <h2>Dress Code</h2>
+                <lord-icon
+                    src="https://cdn.lordicon.com/okgbpdra.json"
+                    stroke="light"
+                    colors="primary:#5F6D4B,secondary:#b29a68"
+                    class="lord-icon-style"
+                ></lord-icon>
+                <p>Traje formal y elegante. Colores reservados para novia y sus damas: Blanco y Dorado</p>
+                
+                <div class="dresscode-buttons">
+                    <button onclick="window.open('https://www.pinterest.com/search/pins/?q=Outfits%20para%20bodas%20elegantes%20en%20la%20noche&rs=typed', '_blank')">
+                        Ideas para Damas
+                    </button>
+                    <button onclick="window.open('https://www.pinterest.com/search/pins/?q=Trajes%20para%20hombres%20elegantes%20para%20boda%20de%20noche&rs=typed', '_blank')">
+                        Ideas para Caballeros
+                    </button>
+                </div>
+            </div>  
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/V3.jpeg" alt="Foto de la pareja" loading="lazy">
+            </div>           
+
+            <div class="wishes-section fade-in-element fade-in-element">
+                <h2>Buenos deseos</h2>
+                <button  type="button" onclick="toggleWishes()">VER BUENOS DESEOS</button>
+                <div id="wishes" class="hidden">
+                    <!-- Aquí se mostrarán los buenos deseos -->
+                </div>
+                <button type="button" onclick="toggleWishForm()">ENVIAR BUENOS DESEOS</button>
+                <div id="wish-form" class="hidden">
+                    <label for="wish-name">Nombre:</label>
+                    <input type="text" id="wish-name">
+                    <label for="wish-message">Mensaje:</label>
+                    <textarea id="wish-message"></textarea>
+                    <button onclick="submitWish()">Enviar</button>
+                </div>
+            </div>
+            <div class="album-section fade-in-element">
+                <h2>¡Hagamos los recuerdos inolvidables!</h2>
+                <h1 class="hashtag">#noscasamosalexanderyestefany</h1>
+                <div class="qr-container">
+                    <div id="qrCode"></div>
+                    <img src="/images/QR-AE.png" alt="Escane el QR" width="400">
+                    <p>Escanea el código QR o usa el botón para subir tus fotos</p>
+                    <a class="upload-btn" href="https://drive.google.com/drive/folders/18ZL8Hn_bUZu-dWPbQ_kMSZNn4yTSBx6P?usp=sharing" target="_blank">SUBIR FOTOS</a>
+                </div>
+            </div>
+            <div class="nochild-section fade-in-element">
+                <h2>Solo adultos</h2>
+                <p>Este evento es exclusivo para adultos. Agradecemos su comprensión y apoyo.</p>
+            </div>       
+            <div class="rsvp-section fade-in-element fade-in-element">
+                <h2>Confirmación</h2>
+                <lord-icon 
+                 src="https://cdn.lordicon.com/wzwygmng.json" 
+                 stroke="light"  
+                 colors="primary:#5F6D4B,secondary:#b29a68" 
+                 class="lord-icon-style"
+                 ></lord-icon>
+                <p>Para nosotros es muy importante que confirmes tu asistencia lo antes posible, o bien indicarnos si no podrás acompañarnos.</p>
+                <button type="button" onclick="confirmarWhatsApp()">CONFIRMA TU ASISTENCIA</button>
+            </div>
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/V1.jpeg" alt="Foto de la pareja" loading="lazy">
+            </div>
+            <div class="banner-section fade-in-element fade-in-element1">
+                <p>Además,  uno que anda solo puede ser vencido,  pero dos juntos pueden hacerle frente al agresor. Y una cuerda triple, no se rompe fácilmente. </p>
+            </div>
+            <footer class="fade-in-element fade-in-element">
+                <div class="social-icons">
+                    <a href="https://wa.me/50236011737" aria-label="Whatsapp"><i class="fab fa-whatsapp fade-in-element"></i></a>
+                    <a href="https://www.facebook.com/thetwodesign?mibextid=ZbWKwl" aria-label="Facebook"><i class="fab fa-facebook fade-in-element"></i></a>
+                    <a href="https://www.instagram.com/thetwodesign?igsh=M2k5eWF4dHl3czNv" aria-label="Instagram"><i class="fab fa-instagram fade-in-element"></i></a>
+                </div>
+                <div class="logo fade-in-element">
+                    <img src="/images/2.png" alt="Logo de la empresa">
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+    <script type="module" src="/database.js" defer></script>
+    <script src="/script.js" defer></script>
+    <script type="module" src="/loads.js" defer></script>
+</body>
+</html>
