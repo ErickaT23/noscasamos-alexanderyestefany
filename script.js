@@ -196,14 +196,41 @@ window.confirmarWhatsApp = function () {
   
     const guest = window.currentGuest;
   
-    const nombre = guest?.name ? guest.name : "Invitado";
-    const pases = guest?.passes ? guest.passes : 1;
+    if (!guest) return;
   
-    const verbo = pases === 1 ? "soy" : "somos";
+    const nombre = guest.name || "Invitado";
+    const adults = Number(guest.adults || 0);
+    const kids = Number(guest.kids || 0);
+    const total = adults + kids;
   
-    const texto = `Hola, ${verbo} ${nombre} y confirmo la asistencia a la boda de Alexander & Estefany. Somos ${pases} ${pases === 1 ? "persona" : "personas"}.`;
+    let textoConfirmacion = "";
   
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(texto)}`;
+    // 🔹 Caso 1: 1 adulto, 0 niños
+    if (adults === 1 && kids === 0) {
+      textoConfirmacion = `Hola, soy ${nombre} y confirmo mi asistencia a la boda de Alexander & Estefany. Soy 1 adulto.`;
+    }
+  
+    // 🔹 Caso 2: varios adultos, 0 niños
+    else if (adults > 1 && kids === 0) {
+      textoConfirmacion = `Hola, somos ${nombre} y confirmamos nuestra asistencia a la boda de Alexander & Estefany. Somos ${adults} adultos.`;
+    }
+  
+    // 🔹 Caso 3: adultos y niños
+    else if (adults > 0 && kids > 0) {
+      textoConfirmacion = `Hola, somos ${nombre} y confirmamos nuestra asistencia a la boda de Alexander & Estefany. Somos ${adults} adulto${adults !== 1 ? "s" : ""} y ${kids} niño${kids !== 1 ? "s" : ""}.`;
+    }
+  
+    // 🔹 Caso 4: solo niños (por si algún caso especial)
+    else if (adults === 0 && kids > 0) {
+      textoConfirmacion = `Hola, somos ${nombre} y confirmamos nuestra asistencia a la boda de Alexander & Estefany. Somos ${kids} niño${kids !== 1 ? "s" : ""}.`;
+    }
+  
+    // 🔹 Caso fallback
+    else {
+      textoConfirmacion = `Hola, confirmo la asistencia a la boda de Alexander & Estefany.`;
+    }
+  
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(textoConfirmacion)}`;
     window.location.href = url;
   };
   
