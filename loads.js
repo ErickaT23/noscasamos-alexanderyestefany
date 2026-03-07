@@ -52,6 +52,7 @@ const guests = [
   { id: "50", name: "Familia: González de Leon", adults: 6, kids: 1, gender: "mixto" },
   { id: "51", name: "Familia: González Sánchez", adults: 2, kids: 0, gender: "mixto" },
   { id: "52", name: "Luis Alberto Tojil", adults: 1, kids: 0, gender: "mixto" },
+  { id: "53", name: "Luis Martines Vásquez", adults: 2, kids: 1, gender: "mixto" },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
